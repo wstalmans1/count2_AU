@@ -14,6 +14,12 @@ async function main() {
         new ethers.Wallet(process.env.PRIVATE_KEY, new ethers.providers.InfuraProvider('sepolia', process.env.INFURA_API_KEY))
     );
 
+    const txResponse = await Contract.inc();
+    console.log('waiting for the increment transaction to confirm');
+    const txReceipt= await txResponse.wait();
+    //console.log(txReceipt.transactionHash);
+
+    
     const Count = await Contract.get();
     console.log(Count.toString());
 }
