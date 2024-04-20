@@ -15,7 +15,7 @@ async function main() {
     );
 
     const txResponse = await Contract.decr();
-    console.log('waiting for the decrement transaction to confirm');
+    console.log('waiting for the decrement transaction to confirm ...');
     const txReceipt= await txResponse.wait();
     //console.log(txReceipt.transactionHash);
 
