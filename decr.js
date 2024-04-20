@@ -14,7 +14,7 @@ async function main() {
     const txResponse = await Contract.decr();
     
     // Waiting for the transaction confirmation from the blockchain
-    console.log('waiting for the increment transaction to confirm ...');
+    console.log('waiting for the decrement transaction to confirm ...');
     await txResponse.wait();
 
     // Read the value of the count variable (through a call to the get() function)
