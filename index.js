@@ -1,7 +1,11 @@
 require('dotenv').config();
 const ethers = require('ethers');
 
-const provider = new ethers.providers.AlchemyProvider('sepolia', process.env.ALCHEMY_API_KEY);
+const network = {
+    name: 'sepolia',
+    chainId: 11155111 // This is the chain ID for Sepolia
+};
+const provider = new ethers.providers.InfuraProvider('sepolia', process.env.INFURA_API_KEY);
 
 async function main() {
     const counterContract = new ethers.Contract(
@@ -11,7 +15,7 @@ async function main() {
     );
 
     const currentCounterValue = await counterContract.get();
-    console.log(currentCounterValue);
+    console.log(currentCounterValue.toString());
 }
 
 main();
